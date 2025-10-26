@@ -88,11 +88,11 @@ attach(data1)
 missing_values <- sapply(data1, function(x) sum(is.na(x)));missing_values
 
 
-# Alternatively, you can use summary() function to get a summary of missing values
 summary(data1)
 
 # Find duplicates
 duplicate_rows=data[duplicated(data1) | duplicated(data1, fromLast = TRUE), ];duplicate_rows
+
 #CORRELATION
 
 install.packages("corrplot")
@@ -192,8 +192,6 @@ data1=data1[,-c(1)];data1
 # Load necessary libraries
 library(ggplot2)
 
-# Assuming your dataset is named 'data'
-# Replace 'data' with the actual name of your dataset if different
 ggplot(data1, aes(x = Year)) +geom_histogram(binwidth = 1, fill = 'blue', color = 'black', alpha = 0.7) +labs(title = "Histogram of Year", x = "Year", y = "Frequency") +theme_minimal()
 ggplot(data1, aes(x =Mileage.kmpl.)) +geom_histogram(binwidth = 1, fill = 'blue', color = 'black', alpha = 0.7) +labs(title = "Histogram of Mileage.kmpl.", x = "Mileage.kmpl.", y = "Frequency") +theme_minimal()
 ggplot(data1, aes(x =Seats)) +geom_histogram(binwidth = 1, fill = 'blue', color = 'black', alpha = 0.7) +labs(title = "Histogram of Seats", x = "Seats", y = "Frequency") +theme_minimal()
@@ -411,3 +409,4 @@ correlation <- cor(actuals, predictions2);correlation
 
 model_summary =summary(model20)
 model_summary$r.squared
+
